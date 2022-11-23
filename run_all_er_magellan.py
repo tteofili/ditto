@@ -48,6 +48,7 @@ lms = ['roberta', 'roberta', 'roberta', 'roberta', 'roberta', 'roberta',
 # bert
 # xlnet
 # roberta""".split('\n')
+size = 0.05
 
 for dataset, op, lm in zip(datasets, ops, lms):
     if dataset in special_datasets:
@@ -67,7 +68,8 @@ for dataset, op, lm in zip(datasets, ops, lms):
               --fp16 \
               --lm %s \
               --n_epochs %d \
-              --run_id %d""" % (dataset, batch_size, lm, epochs, run_id)
+              --run_id %d \
+              --size %d """% (dataset, batch_size, lm, epochs, run_id, size)
                 if 'Company' in dataset:
                     cmd += ' --summarize'
                 if da:

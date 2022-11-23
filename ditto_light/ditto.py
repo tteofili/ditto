@@ -230,4 +230,5 @@ def train(trainset, validset, testset, run_tag, hp):
                    't_f1': test_f1}
         writer.add_scalars(run_tag, scalars, epoch)
 
+    print(f'best f1: {best_test_f1}')
     writer.close()

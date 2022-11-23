@@ -30,7 +30,7 @@ if __name__=="__main__":
     parser.add_argument("--alpha_aug", type=float, default=0.8)
     parser.add_argument("--dk", type=str, default=None)
     parser.add_argument("--summarize", dest="summarize", action="store_true")
-    parser.add_argument("--size", type=int, default=None)
+    parser.add_argument("--size", type=float, default=None)
 
     hp = parser.parse_args()
 

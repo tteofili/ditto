@@ -41,6 +41,12 @@ class DittoDataset(data.Dataset):
             self.pairs.append((s1, s2))
             self.labels.append(int(label))
 
+        if self.size is not None and self.size <= 1:
+            print(f'using {self.size*100}% of the labels')
+            self.size = int(len(self.pairs) * self.size)
+            size = self.size
+            print(f'using {size} training samples')
+
         self.pairs = self.pairs[:size]
         self.labels = self.labels[:size]
         self.da = da
