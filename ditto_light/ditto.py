@@ -181,7 +181,8 @@ def train(trainset, validset, testset, run_tag, hp):
     model = DittoModel(device=device,
                        lm=hp.lm,
                        alpha_aug=hp.alpha_aug)
-    model = model.cuda()
+    if device == 'cuda':
+        model = model.cuda()
     optimizer = AdamW(model.parameters(), lr=hp.lr)
 
     if hp.fp16:
